@@ -5,6 +5,7 @@
         <title>Pick list</title>
         <script src="../js/angular.js"></script>
         <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/underscore-min.js"></script>
         <script src="../js/controller/PickListCtrl.js"></script>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
     </head>
@@ -12,13 +13,22 @@
         <div class="page-header">
             <h1>Pick List</h1>
         </div>
-        <div>
-            Search query: <input ng-model="query">
-            <ul>
-                <li ng-repeat="availableItem in availableItems | filter:query">
-                    {{availableItem.name}}
-                </li>
-            </ul>
+        <div class="panel panel-default">
+            <div class="panel-heading">Available items</div>
+            <div class="panel-body">
+                Search query: <input ng-model="query">
+            </div>
+            <div>
+                <div class="list-group">
+                    <a href="#"
+                       ng-repeat="availableItem in availableItems | filter:query"
+                       ng-class="{active: isAvailableItemSelected(availableItem)}"
+                       class="list-group-item"
+                       ng-click="changeSelectionForAvailableItem(availableItem)">
+                        {{availableItem.name}}
+                    </a>
+                </div>
+            </div>
         </div>
     </body>
 </html>

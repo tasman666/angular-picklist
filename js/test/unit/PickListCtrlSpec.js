@@ -19,4 +19,39 @@ describe('Pick List Controller should', function(){
 
         expect(scope.availableItems).toEqual(data);
     });
+
+    it('select available item', function() {
+        scope.selectedAvailableItems = [];
+        var item = {name: 'one'};
+
+        scope.changeSelectionForAvailableItem(item);
+
+        expect(scope.selectedAvailableItems).toEqual([item]);
+    });
+
+    it('deselect available item', function() {
+        var item = {name: 'one'};
+        scope.selectedAvailableItems = [item];
+
+        scope.changeSelectionForAvailableItem(item);
+
+        expect(scope.selectedAvailableItems).toEqual([]);
+    });
+
+    it('available item selected', function() {
+        var item = {name: 'one'};
+        scope.selectedAvailableItems = [item];
+
+        var result = scope.isAvailableItemSelected(item);
+
+        expect(result).toBeTruthy();
+    });
+
+    it('available item not selected', function() {
+        scope.selectedAvailableItems = [];
+
+        var result = scope.isAvailableItemSelected({name: 'one'});
+
+        expect(result).toBeFalsy();
+    });
 });

@@ -18,6 +18,7 @@ module.exports = function(config) {
       'js/angular.js',
       'js/angular-mocks.js',
       'js/controller/*.js',
+      'js/underscore-min.js',
       'js/test/unit/*Spec.js'
     ],
 
