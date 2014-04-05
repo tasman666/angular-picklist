@@ -15,9 +15,8 @@
         <div>
             Search query: <input ng-model="query">
             <ul>
-                <li ng-repeat="phone in phones | filter:query">
-                    {{phone.name}}
-                    <p>{{phone.snippet}}</p>
+                <li ng-repeat="availableItem in availableItems | filter:query">
+                    {{availableItem.name}}
                 </li>
             </ul>
         </div>

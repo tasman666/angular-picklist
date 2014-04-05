@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "LeBron James"
+    },
+    {
+        "id": 2,
+        "name": "Kevin Durant"
+    },
+    {
+        "id": 3,
+        "name": "Chris Paul"
+    },
+    {
+        "id": 4,
+        "name": "John Wall"
+    },
+    {
+        "id": 5,
+        "name": "Carmelo Anthony"
+    },
+    {
+        "id": 6,
+        "name": "Tony Parker"
+    }
+]

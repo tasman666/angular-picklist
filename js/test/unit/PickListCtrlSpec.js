@@ -1,9 +1,22 @@
 describe('Pick List Controller should', function(){
-    beforeEach(module('pickListApp'));
-    it('should create "phones" model with 3 phones', inject(function($controller) {
-        var scope = {},
-            ctrl = $controller('PickListCtrl', { $scope: scope });
 
-        expect(scope.phones.length).toBe(3);
+    var scope, ctrl, $httpBackend;
+    beforeEach(module('pickListApp'));
+    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
+        $httpBackend = _$httpBackend_;
+        scope = $rootScope.$new();
+        ctrl = $controller('PickListCtrl', {$scope: scope});
     }));
+
+    it('fetch objects and assign to available items', function() {
+        var data = [
+            {id: 1, name: 'Nexus S'},
+            {id: 2, name: 'Motorola DROID'}
+        ];
+        $httpBackend.expectGET('data.json').respond(data);
+
+        $httpBackend.flush();
+
+        expect(scope.availableItems).toEqual(data);
+    });
 });
